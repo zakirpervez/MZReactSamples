@@ -16,4 +16,6 @@ Declaration using const keyword <span style="color: yellow">`const variable_name
 
 For more details please refer [ES6 variables doc](https://www.tutorialspoint.com/es6/es6_variables.htm).
 
+How to use multiple js vars please check this [commit](https://github.com/zakirpervez/MZReactSamples/commit/c5693bb46c01c37da3f4fa243b9c987a124c9164)
+
 

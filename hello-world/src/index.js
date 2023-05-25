@@ -18,14 +18,9 @@ const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
 function App() {
-    // let message = "Hello World!";
-    // if (Math.random() > 0.5) {
-    //     message = "Hello React World!"
-    // }
-
-    // const date = new Date();
-    // const time = date.toLocaleTimeString();
-    return <h1>{new Date().toLocaleTimeString()}</h1>;
+    const name = 'Zakir';
+    const count = 30;
+    return <h1>Hey whats up {name}. please count to {count} </h1>;
 }
 
 /** Step 3 => Render it */
