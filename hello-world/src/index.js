@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// Steps to load react
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+//Step 1 => Import React and ReactDOM libraries.
+//Step 2 => Get a reference to the div with ID root.
+//Step 3 > TEll React to take control of that element.
+//Step 4 => Create component.
+//Step 5 => Show the component on the screen.
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+/** Step 1 => Imports */
+import React from "react"; // Library defines what a component is and how multiple components works together.
+import * as ReactDOM from 'react-dom/client'; // Library that knows hot get a component to show up in the browser.
+
+/** Step 2 => Get the div id from publilc/index.htm */
+const element = document.getElementById('root');
+
+/** Step 3 => Create react controller */
+const root = ReactDOM.createRoot(element);
+
+/** Step 4 => Create react component*/
+function App() {
+    return <h1>Hello World!</h1>;
+}
+
+/** Step 3 => Render it */
+root.render(<App />);
