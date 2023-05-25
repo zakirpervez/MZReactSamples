@@ -18,9 +18,10 @@ const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
 function App() {
-    const name = 'Zakir';
-    const count = 30;
-    return <h1>Hey whats up {name}. please count to {count} </h1>;
+    const inputType = 'number';
+    const minValue = 1;
+    const maxValues = 10;
+    return <input type={inputType} min={minValue} max={maxValues}/>;
 }
 
 /** Step 3 => Render it */
