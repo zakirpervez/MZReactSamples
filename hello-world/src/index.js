@@ -9,6 +9,7 @@
 /** Step 1 => Imports */
 import React from "react"; // Library defines what a component is and how multiple components works together.
 import * as ReactDOM from 'react-dom/client'; // Library that knows hot get a component to show up in the browser.
+import App from './App';
 
 /** Step 2 => Get the div id from publilc/index.htm */
 const element = document.getElementById('root');
@@ -17,18 +18,18 @@ const element = document.getElementById('root');
 const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
-function App() {
-    return (
-        <div>
-            <textarea
-                readOnly
-                spellCheck
-                maxLength={30}
-                style={{backgroundColor: "greenyellow", textDecoration: 'underline black'}}
-            />
-        </div>
-    );
-}
+// function App() {
+//     return (
+//         <div>
+//             <textarea
+//                 readOnly
+//                 spellCheck
+//                 maxLength={30}
+//                 style={{backgroundColor: "greenyellow", textDecoration: 'underline black'}}
+//             />
+//         </div>
+//     );
+// }
 
 /** Step 5 => Render it */
 root.render(<App />);
