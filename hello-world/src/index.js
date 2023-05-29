@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
 function App() {
-    return <textarea autoFocus={true}/>;
+    return <input style={{border: '1px solid yellowgreen'}}/>;
 }
 
 /** Step 5 => Render it */
