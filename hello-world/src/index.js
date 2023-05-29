@@ -18,7 +18,16 @@ const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
 function App() {
-    return <input style={{border: '1px solid yellowgreen'}}/>;
+    return (
+        <div>
+            <textarea
+                readOnly
+                spellCheck
+                maxLength={30}
+                style={{backgroundColor: "greenyellow", textDecoration: 'underline black'}}
+            />
+        </div>
+    );
 }
 
 /** Step 5 => Render it */
