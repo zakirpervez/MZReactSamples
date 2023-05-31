@@ -18,7 +18,7 @@ const element = document.getElementById('root');
 const root = ReactDOM.createRoot(element);
 
 /** Step 4 => Create react component*/
-// This step moved inside the App.js
+//Note: This step moved inside the App.js
 // function App() {
 //     return (
 //         <div>
