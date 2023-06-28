@@ -13,14 +13,20 @@ const svgMap = {
 }
 
 function AnimalShow({ type }) {
-    const [clicks, setClicks] = useState(0)
+    const [clicks, setClicks] = useState(0);
+    const [size, setSize] = useState(10);
+    const animalSize = 200;
+
     const handleClickEvent = () => {
-        setClicks(clicks+1)
+        if (size < animalSize) {
+            setSize(10+10*clicks);
+        }
+        setClicks(clicks+1);
     };
 
     return <div onClick={handleClickEvent} className="animal-show">
-        <img alt="animal" src={svgMap[type]} className="animal"/>
-        <img alt="heart" className="heart" src={heart} style={{width: 10+10*clicks+'px'}}/>
+        <img alt="animal" src={svgMap[type]} style={{ height: animalSize+'px' }}/>
+        <img alt="heart" className="heart" src={heart} style={{width: size+'px'}}/>
     </div>
 }
 
