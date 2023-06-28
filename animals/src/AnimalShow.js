@@ -1,6 +1,6 @@
 
-function AnimalShow() {
-    return <div>Showing animal</div>
+function AnimalShow({ type, key }) {
+    return <div>{ type }</div>
 }
 
 export default AnimalShow;
