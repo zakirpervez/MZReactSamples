@@ -1,6 +1,6 @@
-
+import './ImageList.css'
 function ImageShow({ image }) {
-    return <div>
+    return <div className="img">
         <img src={ image.urls.small } alt={image.alt_description}/>
     </div>
 }
