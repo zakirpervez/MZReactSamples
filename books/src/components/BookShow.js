@@ -1,7 +1,12 @@
-function BookShow({ book }) {
+function BookShow({ book, onDelete }) {
     return (
         <div className="book-show">
-            { book.title }
+            {book.title}
+            <div className="actions">
+                <button className="delete" onClick={()=> {
+                    onDelete(book.id)
+                }}></button>
+            </div>
         </div>
     );
 }

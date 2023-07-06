@@ -7,6 +7,13 @@ import BookList from "./components/BookList";
 function App() {
     const [books, setBooks] = useState([]);
 
+   const deleteBookById = (id) => {
+     const updatedBooks = books.filter((book, index) => {
+        return id !== book.id
+     }) ;
+     setBooks(updatedBooks);
+   };
+
     const createBook = (title) => {
         const updatedBook = [...books, {id: Math.round(Math.random() * 99999), title}];
         setBooks(updatedBook)
@@ -14,7 +21,7 @@ function App() {
 
     return (
         <div className="app">
-            <BookList books={books}/>
+            <BookList books={books} onDelete={ deleteBookById }/>
             <BookCreate onCreate={ createBook }/>
         </div>
     );
