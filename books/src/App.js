@@ -19,23 +19,30 @@ function App() {
         fetchBooks()
     }, []);
 
-   const deleteBookById = (id) => {
-     const updatedBooks = books.filter((book, index) => {
-        return id !== book.id
-     }) ;
-     setBooks(updatedBooks);
-   };
+    const deleteBookById = async (id) => {
+        const response = await axios.delete(`http://localhost:3001/books/${id}`)
+        const updatedBooks = books.filter((book, index) => {
+            return id !== book.id
+        });
+        setBooks(updatedBooks);
+    };
 
-   const editBookById = ({id, title}) => {
+    const editBookById = async ({id, title}) => {
+        const response = await axios.put(`http://localhost:3001/books/${id}`, {
+            title
+        });
+
+        console.log(response.data);
+
         const updatedBook = books.map((book) => {
             if (book.id === id) {
-                return { ...book, title }
+                return {...book, ...response.data}
             }
             return book;
         });
 
         setBooks(updatedBook);
-   }
+    }
 
     const createBook = async (title) => {
         // const updatedBook = [...books, {id: Math.round(Math.random() * 99999), title}];
@@ -50,8 +57,8 @@ function App() {
     return (
         <div className="app">
             <h1>Reading List</h1>
-            <BookList books={books} onDelete={ deleteBookById } onEdit={ editBookById }/>
-            <BookCreate onCreate={ createBook }/>
+            <BookList books={books} onDelete={deleteBookById} onEdit={editBookById}/>
+            <BookCreate onCreate={createBook}/>
         </div>
     );
 }
