@@ -1,11 +1,23 @@
 import './App.css';
-import BookEdit from "./components/BookEdit";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
+import axios from "axios";
 
 function App() {
     const [books, setBooks] = useState([]);
+
+    const fetchBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books');
+        setBooks(response.data);
+    }
+
+    //Don't call this here because app component multiple times which call every time.
+    // fetchBooks();
+    // Solution to this problem is following.
+    useEffect(() => {
+        fetchBooks()
+    }, []);
 
    const deleteBookById = (id) => {
      const updatedBooks = books.filter((book, index) => {
@@ -25,8 +37,13 @@ function App() {
         setBooks(updatedBook);
    }
 
-    const createBook = (title) => {
-        const updatedBook = [...books, {id: Math.round(Math.random() * 99999), title}];
+    const createBook = async (title) => {
+        // const updatedBook = [...books, {id: Math.round(Math.random() * 99999), title}];
+        // setBooks(updatedBook)
+        const response = await axios.post('http://localhost:3001/books', {
+            title
+        })
+        const updatedBook = [...books, response.data];
         setBooks(updatedBook)
     }
 
