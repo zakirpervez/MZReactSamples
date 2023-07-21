@@ -1,3 +1,4 @@
+// To run the json-server run the following command.
 GET http://localhost:3001/books HTTP/1.1
 Content-Type: application/json
 
