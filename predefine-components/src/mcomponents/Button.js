@@ -8,7 +8,7 @@ import classNames from "classnames";
 // console.log(finalClassName)
 
 function Button({ children, primary, secondary, success, warning, danger, outline, rounded, ...rest}) {
-    const classes = classNames(rest.className ,'px-3 py-1.5 border flex item-center', {
+    const classes = classNames(rest.className ,'px-3 py-1.5 border flex item-center mb-5', {
         'border-blue-500 bg-blue-500 text-white': primary,
         'border-gray-500 bg-gray-900 text-white': secondary,
         'border-green-500 bg-green-900 text-white': success,
