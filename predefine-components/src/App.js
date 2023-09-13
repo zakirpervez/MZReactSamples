@@ -1,9 +1,10 @@
-import Button from "./mcomponents/Button";
-import ButtonPage from "./pages/ButtonPage";
+
+import AccordionPage from "./pages/AccordionPage";
 
 function App() {
     return <div>
-        <div><ButtonPage /></div>
+        {/*<div><ButtonPage /></div>*/}
+        <div><AccordionPage /></div>
     </div>
 }
 
