@@ -16,7 +16,7 @@ function Accordion({ items }) {
             </div>
         );
     });
-    return <div>
+    return <div style={{width: '100%'}}>
         { renderedItems }
     </div>;
 }
