@@ -13,7 +13,9 @@ function DropdownPage() {
         {label: 'Green', value: 'green'},
         {label: 'Blue', value: 'blue'},
     ];
-    return <Dropdown options={options} value={selection} onChange={handleSelectEventHandler} />
+    return <div className="flex">
+        <Dropdown dropDownId={1} options={options} value={selection} onChange={handleSelectEventHandler} />
+    </div>
 }
 
 export default DropdownPage;

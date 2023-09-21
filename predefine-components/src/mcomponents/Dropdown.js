@@ -1,13 +1,32 @@
-import {useState} from "react";
-import {hover} from "@testing-library/user-event/dist/hover";
+import {useState, useEffect, useRef} from "react";
 import {GoChevronDown, GoChevronUp} from "react-icons/go";
+import Panel from "./Panel";
 
-function Dropdown({ options, value, onChange }) {
+function Dropdown({ dropDownId, options, value, onChange }) {
+    const divEl = useRef()
     const [isOpen, isOpened] = useState(false);
+    useEffect(() => {
+        const handler = (event) => {
+            if (!divEl.current) {
+                return;
+            };
+            if (!divEl.current.contains(event.target)) {
+                isOpened(false);
+            }
+        }
+        document.addEventListener('click', handler, true);
+        // Cleanup function.
+        return () => {
+            document.removeEventListener('click', handler);
+        };
+    }, []);
     const handleClick = () => {
         isOpened((isCurrentOpen) => !isCurrentOpen);
     }
+
+    window.timeTwo = performance.now();
     const handleItemClick = (option) => {
+        window.timeOne = performance.now();
         isOpened(false);
         onChange(option);
     }
@@ -17,9 +36,9 @@ function Dropdown({ options, value, onChange }) {
     });
 
     return (
-        <div className="w-48 relative">
-            <div className="flex justify-between items-center cursor-pointer border rounded p-3 shadow bg-white w-full" onClick={() => handleClick()}>{value?.label || 'Select...'} {isOpen ? <GoChevronUp className="text-lg"/> : <GoChevronDown className="text-lg"/>}</div>
-            {isOpen &&  <div className="absolute top-full border rounded p-3 shadow bg-white w-full">{ renderedOptions}</div>}
+        <div ref={divEl} className="w-48 relative">
+            <Panel className="flex justify-between items-center cursor-pointer" onClick={() => handleClick()}>{value?.label || 'Select...'} {isOpen ? <GoChevronUp className="text-lg"/> : <GoChevronDown className="text-lg"/>}</Panel>
+            {isOpen &&  <Panel className="absolute top-full">{ renderedOptions}</Panel>}
         </div>
     );
 }
