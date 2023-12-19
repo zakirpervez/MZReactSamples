@@ -2,6 +2,7 @@
 import Button from "../mcomponents/Button";
 import Panel from "../mcomponents/Panel";
 import {useReducer} from "react";
+import {produce} from "immer";
 
 
 const INCREMENT_ACTION = 'increment-counter'
@@ -11,39 +12,29 @@ const FORM_SUBMIT_ACTION = 'form-submit'
 const reducer = (state, action) => {
     switch (action.type) {
         case INCREMENT_ACTION:
-            return {
-                ...state,
-                count: state.count + 1
-            };
+            state.count = state.count +1
+            return;
         case DECREMENT_ACTION:
-            return {
-                ...state,
-                count: state.count - 1
-            };
+           state.count = state.count -1;
 
         case CHANGE_VALUE_TO_ADD_ACTION:
-            return {
-                ...state,
-                valueToAdd: action.payload
-            };
+            state.valueToAdd = action.payload
+            return
 
         case FORM_SUBMIT_ACTION:
-            return {
-                ...state,
-                valueToAdd: 0,
-                count: state.count + 1
-            };
+            state.valueToAdd = 0
+            state.count = state.count + 1
+            return
 
         default:
-            return state
-
+            return
     }
 };
 
 function CounterPage({initialCount}) {
     // const { increment, decrement } = useCounter(initialCount);
     // const [valueToAdd, setValueToAdd] = useState(0)
-    const [state, dispatch] = useReducer(reducer, {
+    const [state, dispatch] = useReducer(produce(reducer), {
         count: initialCount,
         valueToAdd: 0
     });
