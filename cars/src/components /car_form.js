@@ -25,7 +25,6 @@ function CarForm() {
     };
 
     return <div className="car-form panel">
-        <span>{name}</span>
         <h4 className="subtitle is-3">Add Car</h4>
         <form onSubmit={handleSubmit}>
             <div className="field-group">
@@ -50,9 +49,7 @@ function CarForm() {
                     />
                 </div>
                 <div className="field">
-                    <button type="submit" className="button is-primary">
-                        Add
-                    </button>
+                    <button type="submit" className="button is-link">Submit</button>
                 </div>
             </div>
         </form>
