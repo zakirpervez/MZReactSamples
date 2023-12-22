@@ -8,7 +8,7 @@ const carsSlice = createSlice({
     },
     reducers: {
         changeSearchTerm: (state, action) => {
-            state.name = action.payload;
+            state.searchTerm = action.payload;
         },
         addCar: (state, action) => {
             // Assumption is that action.payload is an object with a name and cost property.
